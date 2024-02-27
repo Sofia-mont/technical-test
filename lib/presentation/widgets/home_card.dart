@@ -7,9 +7,9 @@ class HomeInfoCard extends StatefulWidget {
       required this.counter,
       required this.goal,
       required this.chart,
-      required this.icon,
       required this.cardColor,
       this.isHeartState = false,
+      this.icon = 'assets/img/menu_icon.png',
       super.key});
 
   final Color cardColor;
