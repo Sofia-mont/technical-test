@@ -130,8 +130,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     )
                   ],
                 ),
-                error: (error, stackTrace) => const Text('Error'),
-                loading: () => const Text('Loadings'),
+                error: (error, stackTrace) {
+                  ref.watch(fetchUserInfoProvider(userId: 2018));
+                  return const Center(child: CircularProgressIndicator());
+                },
+                loading: () => const Center(child: CircularProgressIndicator()),
               )
             ],
           ),
