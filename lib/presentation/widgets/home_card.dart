@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technical_test_sofia/config/utils/formatter.dart';
 
 class HomeInfoCard extends StatefulWidget {
   const HomeInfoCard(
@@ -7,8 +8,8 @@ class HomeInfoCard extends StatefulWidget {
       required this.goal,
       required this.chart,
       required this.icon,
+      required this.cardColor,
       this.isHeartState = false,
-      this.cardColor = Colors.yellow,
       super.key});
 
   final Color cardColor;
@@ -54,12 +55,22 @@ class _HomeInfoCardState extends State<HomeInfoCard> {
                     TextSpan(
                       text: widget.isHeartState
                           ? '${widget.counter} bpm'
-                          : '${widget.counter} / ${widget.goal}',
+                          : numberFormat(widget.counter),
                       style: const TextStyle(
                           color: Color.fromARGB(255, 33, 50, 66),
                           fontSize: 32,
                           fontWeight: FontWeight.bold),
                     ),
+                    if (!widget.isHeartState)
+                      TextSpan(
+                        text: widget.isHeartState
+                            ? '${widget.goal} bpm'
+                            : ' / ${numberFormat(widget.goal)}',
+                        style: const TextStyle(
+                            color: Color.fromARGB(255, 33, 50, 66),
+                            fontSize: 32,
+                            fontWeight: FontWeight.w300),
+                      ),
                   ],
                 ),
               ),
