@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-UserInfoResponse? astronomyDailyDataFromJson(String str) =>
+UserInfoResponse? userInfoResponseFromJson(String str) =>
     UserInfoResponse.fromJson(json.decode(str));
 
 class UserInfoResponse {
