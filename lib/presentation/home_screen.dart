@@ -130,11 +130,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     )
                   ],
                 ),
-                error: (error, stackTrace) {
-                  ref.watch(fetchUserInfoProvider(userId: 2018));
-                  return const Center(
-                      child: CircularProgressIndicator(color: Colors.white));
-                },
+                error: (error, stackTrace) => const Center(
+                    child: CircularProgressIndicator(color: Colors.white)),
                 loading: () => const Center(
                     child: CircularProgressIndicator(color: Colors.white)),
               )
