@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:technical_test_sofia/core/router/app_router.dart';
+import 'package:technical_test_sofia/config/router/app_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,9 +25,11 @@ class _MyAppState extends ConsumerState<MyApp> {
     return MaterialApp.router(
       title: 'Technical Test',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         scaffoldBackgroundColor: const Color.fromARGB(255, 33, 50, 66),
         useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          color: Color.fromARGB(255, 33, 50, 66),
+        ),
       ),
       routerConfig: routerProvider,
     );
