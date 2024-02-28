@@ -9,3 +9,13 @@ Future<UserInfoResponse> fetchUserInfo(FetchUserInfoRef ref,
     {required int userId}) {
   return ref.watch(userInfoRepositoryProvider).getUserInfo(userId: userId);
 }
+
+@riverpod
+Future<void> updateSteps(UpdateStepsRef ref,
+    {required int userId, required int steps}) async {
+  final post = await ref
+      .read(userInfoRepositoryProvider)
+      .postSteps(userId: userId, steps: steps);
+  ref.invalidate(fetchUserInfoProvider);
+  return post;
+}

@@ -24,4 +24,13 @@ class UserInfoRepository {
         options: Options(headers: {'accept': 'application/json'}));
     return UserInfoResponse.fromJson(response.data);
   }
+
+  Future<void> postSteps({required int userId, required int steps}) async {
+    final url = Uri(
+      scheme: 'https',
+      host: 'fitness-backend-8iy6.onrender.com',
+      path: 'api/add-steps/$userId',
+    ).toString();
+    await client.post(url, data: {'steps': steps});
+  }
 }
